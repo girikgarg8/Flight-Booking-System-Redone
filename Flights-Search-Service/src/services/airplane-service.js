@@ -22,6 +22,35 @@ async function createAirplane(data) {
   }
 }
 
+async function getAirplanes() {
+  try {
+    const airplanes = await airplaneRepository.getAll();
+    return airplanes;
+  } catch (error) {
+    throw new AppError(
+      ERROR_MESSAGES.GET_ALL_AIRPLANES_SOMETHING_WENT_WRONG,
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
+async function getAirplane(id) {
+  try {
+    const airplane = await airplaneRepository.get(id);
+    return airplane;
+  } catch (error) {
+    if (error.statusCode === StatusCodes.NOT_FOUND) {
+      throw error;
+    }
+    throw new AppError(
+      ERROR_MESSAGES.GET_AIRPLANE_SOMETHING_WENT_WRONG,
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
 module.exports = {
   createAirplane,
+  getAirplanes,
+  getAirplane,
 };

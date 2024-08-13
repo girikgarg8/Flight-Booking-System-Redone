@@ -1,6 +1,11 @@
 const ERROR_MESSAGES = {
   CREATE_AIRPLANE_SOMETHING_WENT_WRONG:
     "Something went wrong while creating the airplane",
+  GET_ALL_AIRPLANES_SOMETHING_WENT_WRONG:
+    "Something went wrong while fetching data of airplanes",
+  GET_AIRPLANE_SOMETHING_WENT_WRONG:
+    "Something went wrong while fetching data of the airplane",
+  NOT_FOUND: "Requsted resource not found",
 };
 
 const MIDDLEWARE_EXPLANATIONS = {
