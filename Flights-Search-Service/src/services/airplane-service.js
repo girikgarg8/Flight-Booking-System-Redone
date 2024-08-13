@@ -49,8 +49,24 @@ async function getAirplane(id) {
   }
 }
 
+async function destroyAirplane(id) {
+  try {
+    const response = await airplaneRepository.destroy(id);
+    return response;
+  } catch (error) {
+    if (error.statusCode === StatusCodes.NOT_FOUND) {
+      throw error;
+    }
+    throw new AppError(
+      ERROR_MESSAGES.DESTROY_AIRPLANE_SOMETHING_WENT_WRONG,
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
 module.exports = {
   createAirplane,
   getAirplanes,
   getAirplane,
+  destroyAirplane,
 };

@@ -5,7 +5,9 @@ const ERROR_MESSAGES = {
     "Something went wrong while fetching data of airplanes",
   GET_AIRPLANE_SOMETHING_WENT_WRONG:
     "Something went wrong while fetching data of the airplane",
-  NOT_FOUND: "Requsted resource not found",
+  NOT_FOUND: "Requested resource not found",
+  DESTROY_AIRPLANE_SOMETHING_WENT_WRONG:
+    "Something went wrong while deleting the airplane",
 };
 
 const MIDDLEWARE_EXPLANATIONS = {

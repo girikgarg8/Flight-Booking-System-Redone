@@ -10,7 +10,7 @@ class CrudRepository {
 
   async create(data) {
     try {
-      const response = this.model.create(data);
+      const response = await this.model.create(data);
       return response;
     } catch (error) {
       Logger.error("Something went wrong in the Crud Repo: create");
@@ -20,11 +20,14 @@ class CrudRepository {
 
   async destroy(data) {
     try {
-      const response = this.model.destroy({
+      const response = await this.model.destroy({
         where: {
           id: data,
         },
       });
+      if (!response) {
+        throw new AppError(ERROR_MESSAGES.NOT_FOUND, StatusCodes.NOT_FOUND);
+      }
       return response;
     } catch (error) {
       Logger.error("Something went wrong in the Crud Repo: destroy");
