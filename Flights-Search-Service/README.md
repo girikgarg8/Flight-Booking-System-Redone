@@ -57,3 +57,5 @@ npx sequelize init
 ```
 npm run dev
 ```
+
+[High Level Design document of Project and ER Diagram for Flights Search Service](https://docs.google.com/document/d/1A9gxC_yAv5PjGRjSUjR9ZEMupgWYKVwAQ9CjN0yMENc/edit?usp=sharing)
