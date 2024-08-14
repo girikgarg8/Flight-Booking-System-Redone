@@ -8,11 +8,15 @@ const ERROR_MESSAGES = {
   NOT_FOUND: "Requested resource not found",
   DESTROY_AIRPLANE_SOMETHING_WENT_WRONG:
     "Something went wrong while deleting the airplane",
+  UPDATE_AIRPLANE_SOMETHING_WENT_WRONG:
+    "Something went wrong while updating the airplane",
 };
 
 const MIDDLEWARE_EXPLANATIONS = {
   INVALID_MODEL_NUMBER:
     "Model Number not found in the incoming request in correct form",
+  INVALID_CAPACITY:
+    "Capacity not found in the incoming request in correct form",
 };
 
 const SEQUELIZE_ERROR_TYPES = {

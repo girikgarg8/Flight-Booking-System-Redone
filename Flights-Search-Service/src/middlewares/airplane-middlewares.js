@@ -18,4 +18,16 @@ function validateCreateRequest(req, res, next) {
   next();
 }
 
-module.exports = { validateCreateRequest };
+function validateUpdateRequest(req, res, next) {
+  if (!req.body.capacity) {
+    ErrorResponse.message = ERROR_MESSAGES.UPDATE_AIRPLANE_SOMETHING_WENT_WRONG;
+    ErrorResponse.error = new AppError(
+      [MIDDLEWARE_EXPLANATIONS.INVALID_CAPACITY],
+      StatusCodes.BAD_REQUEST
+    );
+    return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
+  }
+  next();
+}
+
+module.exports = { validateCreateRequest, validateUpdateRequest };

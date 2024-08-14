@@ -66,6 +66,10 @@ class CrudRepository {
           id: id,
         },
       });
+      if (response[0] == 0) {
+        // Number of affected rows is zero
+        throw new AppError(ERROR_MESSAGES.NOT_FOUND, StatusCodes.NOT_FOUND);
+      }
       return response;
     } catch (error) {
       Logger.error("Something went wrong in the Crud Repo: update");

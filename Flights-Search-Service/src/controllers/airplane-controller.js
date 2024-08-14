@@ -51,7 +51,7 @@ async function getAirplane(req, res) {
 }
 
 /**
- * DELETE :/id
+ * DELETE /:id
  */
 async function destroyAirplane(req, res) {
   try {
@@ -64,4 +64,28 @@ async function destroyAirplane(req, res) {
   }
 }
 
-module.exports = { createAirplane, getAirplanes, getAirplane, destroyAirplane };
+/**
+ * PATCH /:id
+ * Req-body {capacity: 250}
+ */
+async function updateAirplane(req, res) {
+  try {
+    const response = await AirplaneService.updateAirplane({
+      id: req.params.id,
+      capacity: req.body.capacity,
+    });
+    SuccessResponse.data = response;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    ErrorResponse.error = error;
+    return res.status(error.statusCode).json(ErrorResponse);
+  }
+}
+
+module.exports = {
+  createAirplane,
+  getAirplanes,
+  getAirplane,
+  destroyAirplane,
+  updateAirplane,
+};
