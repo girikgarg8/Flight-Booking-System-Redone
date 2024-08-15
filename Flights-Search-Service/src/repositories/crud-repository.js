@@ -70,7 +70,7 @@ class CrudRepository {
         // Number of affected rows is zero
         throw new AppError(ERROR_MESSAGES.NOT_FOUND, StatusCodes.NOT_FOUND);
       }
-      return response;
+      return response[0];
     } catch (error) {
       Logger.error("Something went wrong in the Crud Repo: update");
       throw error;

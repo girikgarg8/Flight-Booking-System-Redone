@@ -13,7 +13,7 @@ async function createAirplane(data) {
     if (error.name === SEQUELIZE_ERROR_TYPES.SEQUELIZE_VALIDATION_ERROR) {
       let explanation = [];
       error.errors.forEach((err) => explanation.push(err.message));
-      throw new AppError(explanation, StatusCodes.BAD_REQUEST);
+      throw new AppError(explanation, StatusCodes.UNPROCESSABLE_ENTITY);
     }
     throw new AppError(
       ERROR_MESSAGES.CREATE_AIRPLANE_SOMETHING_WENT_WRONG,

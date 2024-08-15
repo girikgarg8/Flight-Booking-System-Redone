@@ -10,6 +10,14 @@ const ERROR_MESSAGES = {
     "Something went wrong while deleting the airplane",
   UPDATE_AIRPLANE_SOMETHING_WENT_WRONG:
     "Something went wrong while updating the airplane",
+  CREATE_CITY_SOMETHING_WENT_WRONG:
+    "Something went wrong while creating the city",
+  GET_ALL_CITIES_SOMETHING_WENT_WRONG:
+    "Something went wrong while fetching data of cities",
+  GET_CITY_SOMETHING_WENT_WRONG:
+    "Something went wrong while fetching data of the city",
+  UPDATE_CITY_SOMETHING_WENT_WRONG:
+    "Something went wrong while updating the city",
 };
 
 const MIDDLEWARE_EXPLANATIONS = {
@@ -17,10 +25,12 @@ const MIDDLEWARE_EXPLANATIONS = {
     "Model Number not found in the incoming request in correct form",
   INVALID_CAPACITY:
     "Capacity not found in the incoming request in correct form",
+  INVALID_CITY_NAME: "City name not found in the incoming request in correct form",
 };
 
 const SEQUELIZE_ERROR_TYPES = {
   SEQUELIZE_VALIDATION_ERROR: "SequelizeValidationError",
+  SEQUELIZE_UNIQUE_CONSTRAINT_ERROR: "SequelizeUniqueConstraintError",
 };
 
 module.exports = {
